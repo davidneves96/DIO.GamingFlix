@@ -1,0 +1,16 @@
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.exe
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.deps.json
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.runtimeconfig.json
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.runtimeconfig.dev.json
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.dll
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\ref\Gamingflix.dll
+C:\workspace\ProjetoGamesCadastro\Gamingflix\bin\Debug\net5.0\Gamingflix.pdb
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.csproj.AssemblyReference.cache
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.AssemblyInfoInputs.cache
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.AssemblyInfo.cs
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.csproj.CoreCompileInputs.cache
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.dll
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\ref\Gamingflix.dll
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.pdb
+C:\workspace\ProjetoGamesCadastro\Gamingflix\obj\Debug\net5.0\Gamingflix.genruntimeconfig.cache
