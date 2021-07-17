@@ -7,12 +7,12 @@ namespace Gamingflix
         static GameRepositorio repositorio = new GameRepositorio();
         static void Main(string[] args)
         {
-           string opcaoUsuario = ObterOpcaoUsuario();
+            string opcaoUsuario = ObterOpcaoUsuario();
 
-           while (opcaoUsuario.ToUpper() != "X")
-           {
-               switch (opcaoUsuario)
-               {
+            while (opcaoUsuario.ToUpper() != "X")
+            {
+                switch (opcaoUsuario)
+                {
                     case "1":
                         ListarGames();
                         break;
@@ -33,10 +33,10 @@ namespace Gamingflix
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("Digite uma opção válida");
-               }
+                }
 
-               opcaoUsuario = ObterOpcaoUsuario();
-           }
+                opcaoUsuario = ObterOpcaoUsuario();
+            }
 
             Console.WriteLine("Obrigado por utilizar nossos serviços!");
             Console.ReadLine();
@@ -48,26 +48,26 @@ namespace Gamingflix
 
             var lista = repositorio.Lista();
 
-                if(lista.Count == 0)
-                {
-                    Console.WriteLine("Nenhum jogo cadastrado.");
-                    return;
-                }
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nenhum jogo cadastrado.");
+                return;
+            }
 
             foreach (var game in lista)
             {
-                Console.WriteLine("#ID {0}: · {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
+                Console.WriteLine("#ID {0}: {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
             }
         }
 
 
-         private static void AdicionarGame()
+        private static void AdicionarGame()
         {
             Console.WriteLine("Adicionar um novo jogo");
 
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
-                Console.WriteLine ("{0}·{1}", i, Enum.GetName(typeof(Genero), i));
+                Console.WriteLine("{0}·{1}", i, Enum.GetName(typeof(Genero), i));
             }
             Console.Write("Digite o gênero entre as opções acima: ");
             int entradaGenero = int.Parse(Console.ReadLine());
@@ -89,11 +89,11 @@ namespace Gamingflix
             repositorio.Insere(novoGame);
         }
 
-       private static void AtualizarGame()
+        private static void AtualizarGame()
         {
-            Console.Write("Digite o id do jogo: ");
+            Console.WriteLine("Digite o id do jogo: ");
             var lista = repositorio.Lista();
-             foreach (var game in lista)
+            foreach (var game in lista)
             {
                 Console.WriteLine("#ID {0}: · {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
             }
@@ -101,7 +101,7 @@ namespace Gamingflix
 
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
-                Console.WriteLine ("{0}·{1}", i, Enum.GetName(typeof(Genero), i));
+                Console.WriteLine("{0}·{1}", i, Enum.GetName(typeof(Genero), i));
             }
             Console.Write("Digite o gênero entre as opções acima: ");
             int entradaGenero = int.Parse(Console.ReadLine());
@@ -126,54 +126,63 @@ namespace Gamingflix
         private static void ExcluirGame()
         {
             var lista = repositorio.Lista();
-            Console.WriteLine ("Excluir Games:");
-            if(lista.Count == 0)
+            Console.WriteLine("Excluir Games:");
+            if (lista.Count == 0)
             {
                 Console.WriteLine("Nenhum jogo cadastrado.");
                 return;
             }
-          
-            Console.WriteLine("Digite o id do jogo: ");
-            foreach (var game in lista)
+            else
             {
-                if (game.retornaExcluido() == false)
+                Console.WriteLine("Digite o id do jogo: ");
+                int cont = 0;
+                foreach (var game in lista)
                 {
-                    Console.WriteLine("#ID {0}: · {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
+                    var excluido = game.retornaExcluido();
+                    if (excluido == false)
+                    {
+                        Console.WriteLine("#ID {0}: · {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
+                    }
+                    else
+                        cont++;
                 }
-                else 
-                return;
+                if (cont == repositorio.ProximoId())
+                {
+                    Console.WriteLine("Nenhum jogo cadastrado.");
+                    return;
+                }
             }
             int idGame = int.Parse(Console.ReadLine());
             string resposta = "";
 
-            while (resposta.ToUpper() != "S" && resposta.ToUpper() !=  "N")
+            while (resposta.ToUpper() != "S" && resposta.ToUpper() != "N")
             {
-            Console.WriteLine("Deseja realmente excluir o jogo a seguir S/N?"+ Environment.NewLine +repositorio.RetornaPorId(idGame)+ Environment.NewLine+ "Digite S para Sim e N para Não: ");
-            resposta = Console.ReadLine().ToUpper();
-            if (resposta.ToUpper() == "S")
-            {
-            repositorio.Exclui(idGame);
-            Console.WriteLine ("Jogo excluido com sucesso.");
-            Console.ReadLine();
-            Console.Clear();
-            }
-            else
-            if (resposta.ToUpper() == "N")
-            return;
+                Console.WriteLine("Deseja realmente excluir o jogo a seguir S/N?" + Environment.NewLine + repositorio.RetornaPorId(idGame) + Environment.NewLine + "Digite S para Sim e N para Não: ");
+                resposta = Console.ReadLine().ToUpper();
+                if (resposta.ToUpper() == "S")
+                {
+                    repositorio.Exclui(idGame);
+                    Console.WriteLine("Jogo excluido com sucesso.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else
+                if (resposta.ToUpper() == "N")
+                    return;
             }
         }
 
         private static void VisualizarGame()
         {
-             var lista = repositorio.Lista();
-             if(lista.Count == 0)
+            var lista = repositorio.Lista();
+            if (lista.Count == 0)
             {
                 Console.WriteLine("Nenhum jogo cadastrado.");
                 return;
             }
-          
+
             Console.WriteLine("Digite o id do jogo: ");
-                foreach (var game in lista)
+            foreach (var game in lista)
             {
                 Console.WriteLine("#ID {0}: · {1} {2}", game.retornaID(), game.retornaNome(), game.retornaExcluido() ? "(Excluído)" : "");
             }

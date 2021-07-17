@@ -11,7 +11,7 @@ namespace Gamingflix
         {
             listaGames[id] = entidade;
         }
-        
+
         public void Exclui(int id)
         {
             listaGames[id].Exclui();
